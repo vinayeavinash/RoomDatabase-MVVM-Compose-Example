@@ -1,6 +1,7 @@
 package com.example.roomdatabasemvvm.data
 
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Query
 import androidx.room.Upsert
 import kotlinx.coroutines.flow.Flow
@@ -9,7 +10,7 @@ import kotlinx.coroutines.flow.Flow
 interface NoteDuo {
     @Upsert
     suspend fun upsertNote(note: Note)
-
+    @Delete
     suspend fun deleteNote(note: Note)
 
     @Query("SELECT * FROM note ORDER BY dateAdded")
